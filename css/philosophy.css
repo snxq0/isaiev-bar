@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Inter", sans-serif;
+}
+
+.container{
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+
+
+.section{
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    border-radius: 14px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    backdrop-filter: blur(6px);
+    transition: 0.3s ease;
+     margin-top: 30px;
+}
+
+.section:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px var(--shadow-color);
+}
+
+.title{
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.line{
+    height: 2px;
+    width: 60px;
+    background: var(--accent-color);
+    margin: 12px 0 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+p{
+    font-size: 1.05rem;
+    opacity: 0.92;
+    line-height: 1.7;
+}
+
+.quote {
+    margin-top: 25px;
+    padding-left: 15px;
+    border-left: 3px solid var(--primary-color);
+    color: var(--primary-color);
+    font-style: italic; 
+    opacity: 0.0;
+}
+
+.signature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signature img{
+    width: 560px;
+    height: 300px;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/preloader.css">
+
+    
+    <link id="favicon" rel="icon" href="assets/favicons/image 3.png" />
+
+    <title>ISAIEV Bar | Booking</title>
+</head>
+<body>
+    <div id="preloader">
+        <div id="spinner"></div>
+    </div>
+
+    <header class="navbar">
+    <div class="nav-container">
+        <div class="logo-group">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="assets/logo/iB.png" width="60" height="60" alt="isaiev bar icon" />
+            </a>
+
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="toggle-label">
+                <span class="sun">🍸</span>
+                <span class="moon">💎</span>
+                <div class="toggle-ball"></div>
+                </label>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+        <a href="about.html">Про нас</a>
+        <a href="menu.html">Наше меню</a>
+        <a href="booking.html">Забронируй столик</a>
+        <a href="contact.html">Напиши нам</a>
+        <a href="philosophy.html">Наша философия</a>
+        </nav>
+
+    </div> 
+</header>
+
+    <main class="booking-page">
+  <section class="top">
+
+    <div class="filters" style="display:flex; flex-direction:row; align-items: center; justify-content: center;
+    margin-top:100px;">
+      <select id="filter-zone" class="filter-select" aria-label="Фильтр по зоне">
+        <option value="all">Все зоны</option>
+        <option value="casual">Casual</option>
+        <option value="chill">Chill (лаунж)</option>
+        <option value="wib">WiB Zone</option>
+      </select>
+
+      <select id="filter-capacity" class="filter-select" aria-label="Фильтр по вместимости">
+        <option value="all">Любая вместимость</option>
+        <option value="1-2">1—2</option>
+        <option value="3-4">3—4</option>
+        <option value="5-8">5—8</option>
+        <option value="9-20">9+</option>
+      </select>
+
+      <select id="filter-availability" class="filter-select" aria-label="Фильтр по доступности">
+        <option value="all">Все</option>
+        <option value="free">Свободные</option>
+        <option value="busy">Занятые</option>
+      </select>
+
+      <button id="reset-filters" class="filter-btn">Сброс</button>
+   
+    </div>
+  </section>
+
+  <section class="tables-grid" id="tables-grid" aria-live="polite">
+  
+  </section>
+</main>
+
+
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button id="modal-close" class="modal-close" aria-label="Закрыть">&times;</button>
+    <h2 id="modal-title">Бронирование — <span id="modal-table-id"></span></h2>
+
+    <form id="booking-form">
+      <div class="form-row">
+        <label for="b-name">Имя</label>
+        <input id="b-name" type="text" required />
+      </div>
+
+      <div class="form-row">
+        <label for="b-phone">Телефон</label>
+        <input id="b-phone" type="tel" required placeholder="+49..." />
+      </div>
+
+      <div class="form-row">
+        <label for="b-email">E-mail</label>
+        <input id="b-email" type="email" />
+      </div>
+
+      <div class="form-row">
+        <label for="b-datetime">Дата и время</label>
+        <input id="b-datetime" type="datetime-local" required />
+      </div>
+
+      <div class="form-row">
+        <label for="b-guests">Гостей (макс <span id="modal-max-cap">0</span>)</label>
+        <input id="b-guests" type="number" min="1" value="1" required />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Подтвердить бронь</button>
+        <button type="button" id="modal-cancel" class="btn">Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+    
+    <script src="js/preloader.js"></script>
+    <script src="js/typetheme.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
