@@ -1,4 +1,4 @@
-// booking.js — генерирует 22 карточки, фильтрует, открывает модалку и сохраняет бронь в localStorage
+// booking.js — генерирует карточки, фильтрует, открывает модалку и отправляет брони на сервер
 
 const tablesGrid = document.getElementById('tables-grid');
 const filterZone = document.getElementById('filter-zone');
@@ -14,47 +14,36 @@ const bookingForm = document.getElementById('booking-form');
 
 let currentTable = null;
 
-// таблицы — с префиксами и вместимостью (casual C1..C12, chill L1..L5, wib W1..W5)
+// таблицы
 const TABLES = [
-  // casual (до 8)
-  { id: 'C1', zone:'casual', capacity: 2 },
-  { id: 'C2', zone:'casual', capacity: 4 },
-  { id: 'C3', zone:'casual', capacity: 6 },
-  { id: 'C4', zone:'casual', capacity: 4 },
-  { id: 'C5', zone:'casual', capacity: 3 },
-  { id: 'C6', zone:'casual', capacity: 8 },
-  { id: 'C7', zone:'casual', capacity: 2 },
-  { id: 'C8', zone:'casual', capacity: 6 },
-  { id: 'C9', zone:'casual', capacity: 5 },
-  { id: 'C10', zone:'casual', capacity: 4 },
-  { id: 'C11', zone:'casual', capacity: 7 },
-  { id: 'C12', zone:'casual', capacity: 8 },
-
-  // chill (до 10)
-  { id: 'L1', zone:'chill', capacity: 6 },
-  { id: 'L2', zone:'chill', capacity: 8 },
-  { id: 'L3', zone:'chill', capacity: 10 },
-  { id: 'L4', zone:'chill', capacity: 6 },
-  { id: 'L5', zone:'chill', capacity: 9 },
-
-  // wib (до 20)
-  { id: 'W1', zone:'wib', capacity: 10 },
-  { id: 'W2', zone:'wib', capacity: 12 },
-  { id: 'W3', zone:'wib', capacity: 16 },
-  { id: 'W4', zone:'wib', capacity: 8 },
-  { id: 'W5', zone:'wib', capacity: 20 }
+  { id: 'C1', zone:'casual', capacity: 2 }, { id: 'C2', zone:'casual', capacity: 4 },
+  { id: 'C3', zone:'casual', capacity: 6 }, { id: 'C4', zone:'casual', capacity: 4 },
+  { id: 'C5', zone:'casual', capacity: 3 }, { id: 'C6', zone:'casual', capacity: 8 },
+  { id: 'C7', zone:'casual', capacity: 2 }, { id: 'C8', zone:'casual', capacity: 6 },
+  { id: 'C9', zone:'casual', capacity: 5 }, { id: 'C10', zone:'casual', capacity: 4 },
+  { id: 'C11', zone:'casual', capacity: 7 }, { id: 'C12', zone:'casual', capacity: 8 },
+  { id: 'L1', zone:'chill', capacity: 6 }, { id: 'L2', zone:'chill', capacity: 8 },
+  { id: 'L3', zone:'chill', capacity: 10 }, { id: 'L4', zone:'chill', capacity: 6 },
+  { id: 'L5', zone:'chill', capacity: 9 }, { id: 'W1', zone:'wib', capacity: 10 },
+  { id: 'W2', zone:'wib', capacity: 12 }, { id: 'W3', zone:'wib', capacity: 16 },
+  { id: 'W4', zone:'wib', capacity: 8 }, { id: 'W5', zone:'wib', capacity: 20 }
 ];
 
-// load bookings from localStorage
 const BOOKINGS_KEY = 'isaiev_bookings_v1';
 let bookings = JSON.parse(localStorage.getItem(BOOKINGS_KEY) || '[]');
 
-// helper: is table booked (any booking for same table id at any time) — simple approach
 function isTableBooked(tableId){
   return bookings.some(b => b.tableId === tableId);
 }
 
-// render cards
+function capitalize(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+function descForZone(zone){
+  if(zone==='casual') return 'Уютные столы для друзей и встреч.';
+  if(zone==='chill') return 'Мягкие диваны, кальян и лаунж атмосфера.';
+  if(zone==='wib') return 'Приватные круглые столы — для компаний и VIP.';
+  return '';
+}
+
 function renderTables(){
   tablesGrid.innerHTML = '';
   const zoneFilter = filterZone.value;
@@ -62,7 +51,6 @@ function renderTables(){
   const availabilityFilter = filterAvailability.value;
 
   TABLES.forEach(t => {
-    // apply filters
     if(zoneFilter !== 'all' && t.zone !== zoneFilter) return;
 
     if(capFilter !== 'all'){
@@ -111,25 +99,17 @@ function renderTables(){
   });
 }
 
-function capitalize(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
-function descForZone(zone){
-  if(zone==='casual') return 'Уютные столы для друзей и встреч.';
-  if(zone==='chill') return 'Мягкие диваны, кальян и лаунж атмосфера.';
-  if(zone==='wib') return 'Приватные круглые столы — для компаний и VIP.';
-  return '';
-}
-
 /* ---------- modal logic ---------- */
 
 function openModal(tableObj){
   currentTable = tableObj;
   modal.setAttribute('aria-hidden','false');
   modal.style.display = 'flex';
-  document.getElementById('modal-table-id').textContent = tableObj.id;
-  document.getElementById('modal-max-cap').textContent = tableObj.capacity;
+  modalTableId.textContent = tableObj.id;
+  modalMaxCap.textContent = tableObj.capacity;
   document.getElementById('b-guests').max = tableObj.capacity;
   document.getElementById('b-guests').value = Math.min(1, tableObj.capacity);
-  // focus name
+  bookingForm.style.display = 'block'; // показываем форму
   setTimeout(()=> document.getElementById('b-name').focus(), 100);
 }
 
@@ -140,32 +120,59 @@ function closeModal(){
   currentTable = null;
 }
 
+/* show confirmation inside modal */
+function showConfirmation(booking){
+  bookingForm.style.display = 'none';
+  modal.querySelector('.modal-panel').insertAdjacentHTML('beforeend', `
+    <div id="confirmation" style="padding:20px; text-align:center;">
+      <h2 style="color:#007bff;">Бронь принята!</h2>
+      <p>Спасибо, ${booking.name}!</p>
+      <p><strong>Стол:</strong> ${booking.tableId}</p>
+      <p><strong>Дата и время:</strong> ${booking.datetime}</p>
+      <p><strong>Гостей:</strong> ${booking.guests}</p>
+      <button id="modal-close-confirm" class="btn" style="margin-top:15px;">Закрыть</button>
+    </div>
+  `);
+
+  document.getElementById('modal-close-confirm').addEventListener('click', () => {
+    document.getElementById('confirmation').remove();
+    closeModal();
+  });
+}
+
 /* submit booking */
-bookingForm.addEventListener('submit', (e) => {
+bookingForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+  if(!currentTable) return alert('Ошибка — выберите стол.');
+
   const name = document.getElementById('b-name').value.trim();
   const phone = document.getElementById('b-phone').value.trim();
   const email = document.getElementById('b-email').value.trim();
   const datetime = document.getElementById('b-datetime').value;
   const guests = parseInt(document.getElementById('b-guests').value, 10);
 
-  if(!currentTable) return alert('Ошибка — выберите стол.');
-
   if(!name || !phone || !datetime || !guests) return alert('Заполните все обязательные поля.');
 
-  // simple booking object
-  const booking = {
-    id: `${currentTable.id}_${Date.now()}`,
-    tableId: currentTable.id,
-    name, phone, email, datetime, guests, createdAt: new Date().toISOString()
-  };
+  const booking = { id: `${currentTable.id}_${Date.now()}`, tableId: currentTable.id, name, phone, email, datetime, guests, createdAt: new Date().toISOString() };
 
   bookings.push(booking);
   localStorage.setItem(BOOKINGS_KEY, JSON.stringify(bookings));
 
-  // feedback
-  alert(`Готово — таблица ${currentTable.id} забронирована!`);
-  closeModal();
+  // отправка на serverless API
+  try {
+    const res = await fetch("/api/sendBooking", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tableId: currentTable.id, name, phone, email, datetime, guests })
+    });
+    const result = await res.json();
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+
+  // показываем confirmation прямо в модалке
+  showConfirmation(booking);
   renderTables();
 });
 
