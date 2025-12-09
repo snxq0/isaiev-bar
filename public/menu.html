@@ -4,155 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/css/preloader.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/preloader.css">
+<link rel="stylesheet" href="/css/style.css">
 
-    <link id="favicon" rel="icon" href="/assets/favicons/image 3.png" />
 
     <title>IV Bar | Меню</title>
-
     <style>
         /* --- Контейнер страницы --- */
-        .menu-container {
+        main.container {
             display: flex;
             max-width: 1200px;
-            margin: 40px auto;
-            gap: 20px;
-            padding: 0 20px;
+            margin: 60px auto 40px auto;
+            gap: 30px;
         }
 
-        /* --- Боковая панель фильтров --- */
+        /* --- Фильтр слева --- */
         .menu-filter {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             gap: 15px;
-            min-width: 180px;
+            min-width: 160px;
         }
 
-        .filter-btn {
+        .menu-filter .category-btn {
+            width: 140px;
+            text-align: left;
+            padding: 8px 12px;
+            border-radius: 10px;
             background-color: var(--secondary-color);
             color: var(--primary-color);
             border: 1px solid var(--border-color);
-            padding: 8px 15px;
-            border-radius: 15px;
             cursor: pointer;
-            font-weight: 500;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            transition: background-color 0.3s, color 0.3s, transform 0.1s;
-            text-align: left;
+            transition: 0.3s;
         }
 
-        .filter-btn:hover {
+        .menu-filter .category-btn:hover {
             background-color: var(--primary-color);
             color: var(--bg-color);
-            transform: translateY(-2px);
         }
 
-        .filter-btn.active {
+        .menu-filter .category-btn.active {
             background-color: var(--accent-color);
             color: var(--bg-color);
-            border-color: var(--accent-color);
             box-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
         }
 
         /* --- Сетка карточек меню --- */
-        .menu-main {
-            flex: 1;
+        .menu-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
+            flex: 1;
         }
 
         .menu-card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
             border-radius: 10px;
             padding: 20px;
+            border: 1px solid var(--border-color);
             box-shadow: 0 4px 8px var(--shadow-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .menu-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), var(--accent-glow);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5), var(--accent-glow);
         }
 
         .menu-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
             color: var(--heading-color);
-            margin-top: 0;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            font-size: 1.5rem;
         }
 
         .menu-card p {
-            color: var(--text-color);
-            margin-bottom: 0;
+            margin: 0;
             font-style: italic;
+            color: var(--text-color);
         }
+
+        /* Категории */
+        .shots h3 { color: #ff4d6d; }
+        .alcohol h3 { color: #4dffff; }
+        .non-alcohol h3 { color: #99ff99; }
+        .snacks h3 { color: #ffcc99; }
+        .sets h3 { color: var(--accent-color); }
     </style>
 </head>
 <body>
 
-<div id="preloader">
-    <div id="spinner"></div>
-</div>
+<div id="preloader"><div id="spinner"></div></div>
 
 <header class="navbar">
     <div class="nav-container">
-        <div class="logo-group">
-            <a href="index.html" class="logo-link">
-                <img class="logo" src="/assets/logo/iB.png" width="60" height="60" alt="isaiev bar icon" />
-            </a>
-
-            <div class="theme-toggle">
-                <input type="checkbox" id="theme-switch">
-                <label for="theme-switch" class="toggle-label">
-                <span class="sun">🍸</span>
-                <span class="moon">💎</span>
-                <div class="toggle-ball"></div>
-                </label>
-            </div>
-        </div>
-
+        <a href="index.html"><img src="/assets/logo/iB.png" width="60" alt="logo"></a>
         <nav class="nav-links">
-        <a href="about.html">Про нас</a>
-        <a href="menu.html">Наше меню</a>
-        <a href="booking.html">Забронируй столик</a>
-        <a href="contact.html">Напиши нам</a>
-        <a href="philosophy.html">Наша философия</a>
+            <a href="about.html">Про нас</a>
+            <a href="menu.html" class="active-page">Наше меню</a>
+            <a href="booking.html">Забронируй столик</a>
+            <a href="contact.html">Напиши нам</a>
+            <a href="philosophy.html">Наша философия</a>
         </nav>
-
-    </div> 
+    </div>
 </header>
 
-<div class="menu-container">
-    <aside class="menu-filter">
-        <button class="filter-btn active" data-category="all">Все</button>
-        <button class="filter-btn" data-category="shots">Шоты</button>
-        <button class="filter-btn" data-category="alcohol">Алкогольные</button>
-        <button class="filter-btn" data-category="non-alcohol">Безалкогольные</button>
-        <button class="filter-btn" data-category="snacks">Закуски</button>
-        <button class="filter-btn" data-category="sets">Сеты</button>
-    </aside>
+<main class="container">
+    <!-- Фильтр -->
+    <div class="menu-filter">
+        <button class="category-btn active" data-category="all">Все</button>
+        <button class="category-btn" data-category="shots">Шоты</button>
+        <button class="category-btn" data-category="alcohol">Алкогольные</button>
+        <button class="category-btn" data-category="non-alcohol">Безалкогольные</button>
+        <button class="category-btn" data-category="snacks">Закуски</button>
+        <button class="category-btn" data-category="sets">Сеты</button>
+    </div>
 
-    <main class="menu-main">
-        <!-- Здесь все карточки меню, как у тебя раньше -->
-        <div class="menu-card shots">
-            <h3>Фаерболл</h3>
-            <p>Классический огненный шот с корицей</p>
-        </div>
-        <div class="menu-card shots">
-            <h3>Электрик</h3>
-            <p>Водка с энергетиком и лаймом</p>
-        </div>
-        <!-- Добавь все остальные карточки так же -->
-    </main>
-</div>
+    <!-- Карточки меню -->
+    <div class="menu-cards">
+        <div class="menu-card shots"><h3>Фаерболл</h3><p>Классический огненный шот с корицей</p></div>
+        <div class="menu-card alcohol"><h3>WiB-коктейль</h3><p>Ром, апельсиновый ликер, сок маракуйи</p></div>
+        <div class="menu-card non-alcohol"><h3>Лимонад Ваниль-Бузина</h3><p>Освежающий лимонад с сиропом бузины и ванили</p></div>
+        <div class="menu-card snacks"><h3>Сырные палочки</h3><p>Хрустящие палочки с расплавленным сыром</p></div>
+        <div class="menu-card sets"><h3>Классический сет</h3><p>Коктейль IV + Сырные палочки</p></div>
+        <!-- Добавь остальные карточки аналогично -->
+    </div>
+</main>
 
 <script src="/js/typetheme.js"></script>
 <script src="/js/preloader.js"></script>
-<script src="/js/menu.js"></script>
+<script>
+// JS для фильтрации
+const buttons = document.querySelectorAll('.category-btn');
+const cards = document.querySelectorAll('.menu-card');
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const category = btn.dataset.category;
+
+        cards.forEach(card => {
+            if(category === 'all' || card.classList.contains(category)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
