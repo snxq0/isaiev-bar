@@ -1,36 +1,88 @@
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
 .menu-filter {
-    margin-top: 120px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--sidebar-bg);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 80px;
-    z-index: 900;
+    gap: 15px;
+    margin: 40px 0 30px 0;
+    padding: 0 20px;
 }
 
-.menu-filter button {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.25s ease;
-    font-size: 0.95rem;
-}
-
-.menu-filter button.active {
-    background: var(--primary-color);
-    color: var(--bg-color);
-    box-shadow: var(--accent-glow);
-    border-color: transparent;
-}
-
-.menu-filter button:hover:not(.active) {
-    border-color: var(--primary-color);
+.filter-btn {
+    background-color: var(--secondary-color);
     color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 184, 77, 0.5); /* Эффект "неонового" свечения */
+}
+
+/* --- Карточки Меню --- */
+.menu-card {
+    background-color: var(--card-bg); /* Фон карточки */
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), var(--accent-glow); /* Легкий подъем и свечение */
+}
+
+.menu-card h3 {
+    color: var(--heading-color); /* Цвет заголовка напитка */
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.menu-card p {
+    color: var(--text-color);
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Специфические стили для категорий (добавляем легкий акцент) */
+.shots h3 {
+    color: #ff4d6d; /* Красный оттенок для шотов */
+}
+
+.alcohol h3 {
+    color: #4dffff; /* Синий/бирюзовый для алкоголя */
+}
+
+.non-alcohol h3 {
+    color: #99ff99; /* Зеленый оттенок для безалкогольных */
+}
+
+.snacks h3 {
+    color: #ffcc99; /* Теплый оттенок для закусок */
+}
+
+.sets h3 {
+    color: var(--accent-color); /* Основной акцентный цвет для сетов */
 }
