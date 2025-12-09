@@ -13,14 +13,18 @@ main {
 }
 
 .filter-btn {
+    /* *** Изменения для уменьшения размера кнопок *** */
     background-color: var(--secondary-color);
     color: var(--primary-color);
     border: 1px solid var(--border-color);
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 8px 15px; /* Уменьшаем внутренние отступы */
+    border-radius: 15px; /* Чуть уменьшаем радиус скругления */
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 500; /* Чуть уменьшаем жирность шрифта */
+    font-size: 0.95rem; /* Чуть уменьшаем размер шрифта */
+    white-space: nowrap; /* Гарантируем, что текст не перенесется */
     transition: background-color 0.3s, color 0.3s, transform 0.1s;
+    /* ********************************************* */
 }
 
 .filter-btn:hover {
