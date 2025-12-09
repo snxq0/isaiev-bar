@@ -91,3 +91,79 @@ main {
     opacity: 1;
     transform: translateY(0); 
 }
+
+/* --- Планшеты и маленькие ноутбуки --- */
+@media (max-width: 1200px) {
+  main {
+    max-width: 90%;
+    gap: 1.3rem;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav button {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .menu-card {
+    padding: 1.3rem;
+  }
+}
+
+/* Планшеты и большие телефоны */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 0 0.8rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  nav button {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .menu-card {
+    padding: 1rem;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 0 0.5rem;
+  }
+
+  nav {
+    gap: 0.6rem;
+  }
+
+  nav button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .menu-card {
+    padding: 0.8rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+}

@@ -74,3 +74,107 @@ p{
     width: 560px;
     height: 300px;
 }
+
+/* --- Планшеты и маленькие ноутбуки --- */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 18px;
+  }
+
+  .section {
+    padding: 28px;
+    margin-bottom: 35px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .line {
+    width: 50px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .signature img {
+    width: 480px;
+    height: auto;
+  }
+}
+
+/* Планшеты и большие телефоны */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  .section {
+    padding: 22px;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .line {
+    width: 45px;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .quote {
+    font-size: 0.9rem;
+    padding-left: 12px;
+  }
+
+  .signature img {
+    width: 360px;
+    height: auto;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  .container {
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 12px;
+  }
+
+  .section {
+    padding: 16px;
+    margin-bottom: 25px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .line {
+    width: 40px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .quote {
+    font-size: 0.85rem;
+    padding-left: 10px;
+  }
+
+  .signature img {
+    width: 280px;
+    height: auto;
+  }
+}

@@ -144,29 +144,91 @@ body {
   text-shadow: 0 2px 10px var(--accent-color, #ff0066);
 }
 
-
-@media (max-width: 768px) {
-  .about-page .card-wrapper {
-    gap: 15px;
-    padding: 1rem;
+/* --- Ноутбуки и большие планшеты --- */
+@media (max-width: 1200px) {
+  .about-page .heading h1 {
+    font-size: 2.2rem;
   }
-
+  .about-page .heading h3 {
+    font-size: 1rem;
+  }
+  .about-page .card-wrapper {
+    gap: 16px;
+    padding: 1.5rem;
+  }
   .about-page .card {
-    width: 10rem;
+    width: 11rem;
     height: 14rem;
   }
-
   .about-page .card-blur {
     width: 12rem;
     height: 10rem;
   }
 }
 
-@media (max-width: 480px) {
+/* Планшеты и крупные телефоны */
+@media (max-width: 768px) {
+  .about-page .heading h1 {
+    font-size: 2rem;
+  }
+  .about-page .heading h3 {
+    font-size: 0.95rem;
+  }
+  .about-page .card-wrapper {
+    gap: 14px;
+    padding: 1rem;
+  }
+  .about-page .card {
+    width: 10rem;
+    height: 13rem;
+  }
+  .about-page .card-blur {
+    width: 11rem;
+    height: 9rem;
+    top: -40%;
+    left: -40%;
+  }
   .modal-win-card-who,
   .modal-win-card-phi,
   .modal-win-card-why {
-    padding: 1.2rem;
-    font-size: 0.9rem;
+    width: 95%;
+    max-width: 400px;
+    padding: 1.5rem;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  .about-page .heading h1 {
+    font-size: 1.6rem;
+  }
+  .about-page .heading h3 {
+    font-size: 0.85rem;
+  }
+  .about-page .card-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 0.5rem;
+    margin-top: 120px;
+  }
+  .about-page .card {
+    width: 90%;
+    height: auto;
+    min-height: 12rem;
+  }
+  .about-page .card-blur {
+    width: 90%;
+    height: 8rem;
+    top: -30%;
+    left: -30%;
+  }
+  .modal-win-card-who,
+  .modal-win-card-phi,
+  .modal-win-card-why {
+    width: 90%;
+    max-width: 350px;
+    padding: 1rem;
+    font-size: 0.95rem;
   }
 }

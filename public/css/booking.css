@@ -193,14 +193,87 @@ body{
 .btn.primary { background: linear-gradient(90deg,var(--primary-color), #6ea0ff); color:#000; font-weight:700; }
 .btn.ghost { background:transparent; border:1px solid var(--input-border); color:var(--text-color); }
 
-/* responsive */
-@media (max-width:900px) {
-  .tables-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:14px; }
-  .booking-page { padding: 12px; }
-  .page-title { font-size: 22px; }
-  .filter-select { min-width:120px; }
+/* --- Ноутбуки и большие планшеты --- */
+@media (max-width: 1200px) {
+  .booking-page {
+    padding: 0 16px 60px;
+  }
+
+  .tables-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+
+  .table-card {
+    padding: 14px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .filter-select, .filter-btn {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
 }
-@media (max-width:520px) {
-  .tables-grid { grid-template-columns: 1fr; }
-  .modal-panel { width: 94%; padding: 14px; }
+
+/* Планшеты и большие телефоны */
+@media (max-width: 768px) {
+  .booking-page {
+    padding: 0 12px 50px;
+  }
+
+  .tables-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .table-card {
+    padding: 12px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .filter-select, .filter-btn {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  .booking-page {
+    padding: 0 8px 40px;
+  }
+
+  .tables-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .table-card {
+    padding: 10px;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .filter-select, .filter-btn {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .book-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }

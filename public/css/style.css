@@ -234,14 +234,88 @@ main {
   margin-top: 10px;
 }
 
-@media (max-width: 480px){
-  header{
-    margin-left: 60px;
+@media (max-width: 1200px) {
+  main {
+    margin-left: 200px; /* чуть меньше отступ слева */
+    padding: 3rem;
   }
-  body{
-    align-items: center;
+
+  .navbar .nav-container {
+    justify-content: space-between;
+    padding: 0.8rem 1.5rem;
   }
-  #typewriter{
-    display: none;
+
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+/* Планшеты и большие телефоны */
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    padding: 2rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .menu-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .filter-btn, .category-btn {
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .menu-card {
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  #typewriter {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+
+  .filter-btn, .category-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .menu-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .menu-card p {
+    font-size: 0.9rem;
+  }
+
+  .navbar .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .nav-links {
+    gap: 0.3rem;
   }
 }

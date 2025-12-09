@@ -64,3 +64,59 @@ body{
 .contacts a:hover{
     transform: scale(1.2);
 }
+
+/* --- Планшеты и маленькие ноутбуки --- */
+@media (max-width: 1200px) {
+  .card {
+    width: 500px;
+    height: 350px;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 20px;
+  }
+
+  .card-front,
+  .card-back {
+    border-width: 8px;
+  }
+}
+
+/* Планшеты и большие телефоны */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .card {
+    width: 400px;
+    height: 300px;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 18px;
+    border-width: 6px;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 3/2; /* сохраняем пропорции */
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 16px;
+    border-width: 4px;
+    padding: 10px;
+  }
+}
