@@ -1,92 +1,36 @@
 .menu-filter {
-display: flex;
-justify-content: center;
-gap: 15px;
-margin: 40px 0 30px 0;
-padding: 0 20px;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--sidebar-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 80px;
+    z-index: 900;
 }
 
-
-.filter-btn {
-background-color: var(--secondary-color);
-color: var(--primary-color);
-border: 1px solid var(--border-color);
-padding: 8px 15px;
-border-radius: 15px;
-cursor: pointer;
-font-weight: 500;
-font-size: 0.95rem;
-white-space: nowrap;
-transition: background-color 0.3s, color 0.3s, transform 0.1s;
+.menu-filter button {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    font-size: 0.95rem;
 }
 
-
-.filter-btn:hover {
-background-color: var(--primary-color);
-color: var(--bg-color);
-transform: translateY(-2px);
+.menu-filter button.active {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: var(--accent-glow);
+    border-color: transparent;
 }
 
-
-.filter-btn.active {
-background-color: var(--accent-color);
-color: var(--bg-color);
-border-color: var(--accent-color);
-box-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
-}
-
-
-/* --- Menu Cards --- */
-.menu-card {
-background-color: var(--card-bg);
-border: 1px solid var(--border-color);
-border-radius: 10px;
-padding: 20px;
-margin-bottom: 20px;
-box-shadow: 0 4px 8px var(--shadow-color);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.menu-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 8px 16px rgba(0,0,0,0.5), var(--accent-glow);
-}
-
-
-.menu-card h3 {
-color: var(--heading-color);
-margin-top: 0;
-border-bottom: 1px solid var(--border-color);
-padding-bottom: 5px;
-font-size: 1.5rem;
-}
-
-
-.menu-card p {
-color: var(--text-color);
-margin-bottom: 0;
-font-style: italic;
-}
-
-
-/* Category accents */
-.shots h3 { color: #ff4d6d; }
-.alcohol h3 { color: #4dffff; }
-.non-alcohol h3 { color: #99ff99; }
-.snacks h3 { color: #ffcc99; }
-.sets h3 { color: var(--accent-color); }
-
-
-/* Disable typewriter on menu page */
-#typewriter { display: none !important; }
-
-
-/* Fix filter button vertical stretching */
-.filter-btn {
-display: inline-flex !important;
-align-items: center;
-justify-content: center;
-line-height: 1 !important;
-height: auto !important;
+.menu-filter button:hover:not(.active) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
 }
