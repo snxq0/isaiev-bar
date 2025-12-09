@@ -135,6 +135,7 @@ main {
 
   .menu-card {
     padding: 1rem;
+    flex-shrink: 1;
   }
 }
 
@@ -157,6 +158,7 @@ main {
 
   .menu-card {
     padding: 0.8rem;
+    flex-shrink: 1;
   }
 
   header h1 {
