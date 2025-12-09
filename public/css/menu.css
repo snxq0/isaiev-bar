@@ -46,4 +46,47 @@ margin-bottom: 20px;
 box-shadow: 0 4px 8px var(--shadow-color);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+.menu-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 16px rgba(0,0,0,0.5), var(--accent-glow);
+}
+
+
+.menu-card h3 {
+color: var(--heading-color);
+margin-top: 0;
+border-bottom: 1px solid var(--border-color);
+padding-bottom: 5px;
+font-size: 1.5rem;
+}
+
+
+.menu-card p {
+color: var(--text-color);
+margin-bottom: 0;
+font-style: italic;
+}
+
+
+/* Category accents */
+.shots h3 { color: #ff4d6d; }
+.alcohol h3 { color: #4dffff; }
+.non-alcohol h3 { color: #99ff99; }
+.snacks h3 { color: #ffcc99; }
+.sets h3 { color: var(--accent-color); }
+
+
+/* Disable typewriter on menu page */
 #typewriter { display: none !important; }
+
+
+/* Fix filter button vertical stretching */
+.filter-btn {
+display: inline-flex !important;
+align-items: center;
+justify-content: center;
+line-height: 1 !important;
+height: auto !important;
+}
