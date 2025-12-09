@@ -26,7 +26,7 @@ header p {
   font-size: 1.2rem; 
 }
 
-nav {
+.menu-filter{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -35,7 +35,8 @@ nav {
     background: var(--sidebar-bg);
     border-bottom: 1px solid var(--border-color);
 }
-nav button {
+
+.menu-filter button {
     background: none;
     border: none;
     color: var(--text-color);
@@ -45,8 +46,8 @@ nav button {
     border-radius: 6px;
     transition: 0.3s;
 }
-nav button.active,
-nav button:hover {
+.menu-filter button.active,
+.menu-filter button :hover {
     background-color: var(--primary-color);
     color: var(--bg-color);
     box-shadow: var(--accent-glow);
