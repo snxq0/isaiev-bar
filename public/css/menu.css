@@ -26,9 +26,11 @@ header p {
   font-size: 1.2rem; 
 }
 
-.menu-filter{
+nav{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
     flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
@@ -36,7 +38,7 @@ header p {
     border-bottom: 1px solid var(--border-color);
 }
 
-.menu-filter button {
+nav button {
     background: none;
     border: none;
     color: var(--text-color);
@@ -46,8 +48,8 @@ header p {
     border-radius: 6px;
     transition: 0.3s;
 }
-.menu-filter button.active,
-.menu-filter button :hover {
+nav button.active,
+nav button :hover {
     background-color: var(--primary-color);
     color: var(--bg-color);
     box-shadow: var(--accent-glow);
