@@ -75,7 +75,7 @@ function renderTables(){
     const header = document.createElement('div');
     header.className = 'row';
     header.innerHTML = `<div class="table-id">${t.id}</div>
-                        <div class="badge ${isTableBooked(t.id) ? 'status busy' : 'status free'}">${isTableBooked(t.id) ? 'Занят' : 'Свободен'}</div>`;
+                        <div class="badge ${isTableBooked(t.id) ? 'status busy' : 'status free'}">${isTableBooked(t.id) ? 'Besetzt' : 'Frei'}</div>`;
     card.appendChild(header);
 
     const info = document.createElement('div');
