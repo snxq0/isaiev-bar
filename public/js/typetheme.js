@@ -7,7 +7,7 @@ function applySavedTheme() {
   const isLight = savedTheme === "light";
 
   body.classList.toggle("light-theme", isLight);
-  setFavicon(savedTheme);
+ 
 
   if (toggle) toggle.checked = isLight;
 }
@@ -18,7 +18,7 @@ function initThemeToggle() {
     const newTheme = toggle.checked ? "light" : "dark";
     body.classList.toggle("light-theme", newTheme === "light");
     localStorage.setItem("theme", newTheme);
-    setFavicon(newTheme);
+    
   });
 }
 
