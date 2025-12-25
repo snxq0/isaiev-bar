@@ -53,14 +53,14 @@
     <div class="filters" style="display:flex; flex-direction:row; align-items: center; justify-content: center;
     margin-top:100px;">
       <select id="filter-zone" class="filter-select" aria-label="Фильтр по зоне">
-        <option value="all">Все зоны</option>
+        <option value="all">Alle</option>
         <option value="casual">Casual</option>
         <option value="chill">Chill (лаунж)</option>
         <option value="wib">WiB Zone</option>
       </select>
 
       <select id="filter-capacity" class="filter-select" aria-label="Фильтр по вместимости">
-        <option value="all">Любая вместимость</option>
+        <option value="all">Jede Kapazität</option>
         <option value="1-2">1—2</option>
         <option value="3-4">3—4</option>
         <option value="5-8">5—8</option>
@@ -68,12 +68,12 @@
       </select>
 
       <select id="filter-availability" class="filter-select" aria-label="Фильтр по доступности">
-        <option value="all">Все</option>
-        <option value="free">Свободные</option>
-        <option value="busy">Занятые</option>
+        <option value="all">Alle</option>
+        <option value="free">Frei</option>
+        <option value="busy">Besetzt</option>
       </select>
 
-      <button id="reset-filters" class="filter-btn">Сброс</button>
+      <button id="reset-filters" class="filter-btn">Zurücksetzen</button>
    
     </div>
   </section>
@@ -87,37 +87,37 @@
 <div id="modal" class="modal" aria-hidden="true">
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <button id="modal-close" class="modal-close" aria-label="Закрыть">&times;</button>
-    <h2 id="modal-title">Бронирование — <span id="modal-table-id"></span></h2>
+    <h2 id="modal-title">Reservierung — <span id="modal-table-id"></span></h2>
 
     <form id="booking-form">
       <div class="form-row">
-        <label for="b-name">Имя</label>
+        <label for="b-name">Name</label>
         <input id="b-name" type="text" required />
       </div>
 
       <div class="form-row">
-        <label for="b-phone">Телефон</label>
+        <label for="b-phone">Handynummer</label>
         <input id="b-phone" type="tel" required placeholder="+49..." />
       </div>
 
       <div class="form-row">
-        <label for="b-email">E-mail</label>
+        <label for="b-email">Email</label>
         <input id="b-email" type="email" />
       </div>
 
       <div class="form-row">
-        <label for="b-datetime">Дата и время</label>
+        <label for="b-datetime">Datum/Uhrzeit</label>
         <input id="b-datetime" type="datetime-local" required />
       </div>
 
       <div class="form-row">
-        <label for="b-guests">Гостей (макс <span id="modal-max-cap">0</span>)</label>
+        <label for="b-guests">Gäste (max. <span id="modal-max-cap">0</span>)</label>
         <input id="b-guests" type="number" min="1" value="1" required />
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn primary">Подтвердить бронь</button>
-        <button type="button" id="modal-cancel" class="btn">Отмена</button>
+        <button type="submit" class="btn primary">Bestätigen</button>
+        <button type="button" id="modal-cancel" class="btn">Abbruch</button>
       </div>
     </form>
   </div>

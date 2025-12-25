@@ -2,15 +2,6 @@ const body = document.body;
 const toggle = document.getElementById("theme-switch");
 const favicon = document.getElementById("favicon");
 
-
-function setFavicon(theme) {
-  if (!favicon) return;
-  favicon.href =
-    theme === "dark"
-      ? "assets/favicons/image 3.png"
-      : "assets/favicons/favicon-light.png";
-}
-
 function applySavedTheme() {
   const savedTheme = localStorage.getItem("theme") || "dark";
   const isLight = savedTheme === "light";
@@ -59,8 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heading = document.getElementById("heading");
   const slogan = document.getElementById("slogan");
 
-  const heading_text = "Добро пожаловать в ISAIEV Bar!";
-  const slogan_text = "Ваш комфорт в наших руках.";
+  const heading_text = "Willkommen zu unserer Bar!";
 
   typeWriterStyled(heading, heading_text, 80, "--heading-color");
   

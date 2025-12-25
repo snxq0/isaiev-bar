@@ -38,9 +38,9 @@ function isTableBooked(tableId){
 
 function capitalize(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
 function descForZone(zone){
-  if(zone==='casual') return 'Уютные столы для друзей и встреч.';
-  if(zone==='chill') return 'Мягкие диваны, кальян и лаунж атмосфера.';
-  if(zone==='wib') return 'Приватные круглые столы — для компаний и VIP.';
+  if(zone==='casual') return 'Gemütliche Tische für Freunde und Treffen';
+  if(zone==='chill') return 'Weiche Sofas, Hookah und Lounge-Atmosphäre';
+  if(zone==='wib') return 'Private Roundtables für Unternehmen';
   return '';
 }
 
@@ -125,12 +125,12 @@ function showConfirmation(booking){
   bookingForm.style.display = 'none';
   modal.querySelector('.modal-panel').insertAdjacentHTML('beforeend', `
     <div id="confirmation" style="padding:20px; text-align:center;">
-      <h2 style="color:#007bff;">Бронь принята!</h2>
-      <p>Спасибо, ${booking.name}!</p>
-      <p><strong>Стол:</strong> ${booking.tableId}</p>
-      <p><strong>Дата и время:</strong> ${booking.datetime}</p>
-      <p><strong>Гостей:</strong> ${booking.guests}</p>
-      <button id="modal-close-confirm" class="btn" style="margin-top:15px;">Закрыть</button>
+      <h2 style="color:#007bff;">Bestätigt!</h2>
+      <p>Danke, ${booking.name}!</p>
+      <p><strong>Tisch:</strong> ${booking.tableId}</p>
+      <p><strong>Datum und Uhrzeit:</strong> ${booking.datetime}</p>
+      <p><strong>Gäste:</strong> ${booking.guests}</p>
+      <button id="modal-close-confirm" class="btn" style="margin-top:15px;">Schließen</button>
     </div>
   `);
 
@@ -151,7 +151,7 @@ bookingForm.addEventListener('submit', async (e) => {
   const datetime = document.getElementById('b-datetime').value;
   const guests = parseInt(document.getElementById('b-guests').value, 10);
 
-  if(!name || !phone || !datetime || !guests) return alert('Заполните все обязательные поля.');
+  if(!name || !phone || !datetime || !guests) return alert('Alle felder müssen ausgefüllt werden!');
 
   const booking = { id: `${currentTable.id}_${Date.now()}`, tableId: currentTable.id, name, phone, email, datetime, guests, createdAt: new Date().toISOString() };
 
