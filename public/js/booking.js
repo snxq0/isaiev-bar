@@ -80,16 +80,16 @@ function renderTables(){
 
     const info = document.createElement('div');
     info.className = 'table-info';
-    info.innerHTML = `<div class="small">Зона: <strong>${capitalize(t.zone)}</strong></div>
-                      <div class="small">Вместимость: <strong>${t.capacity}</strong></div>
-                      <div class="small" style="margin-top:8px">Описание: ${descForZone(t.zone)}</div>`;
+    info.innerHTML = `<div class="small">Zone: <strong>${capitalize(t.zone)}</strong></div>
+                      <div class="small">Kapazität: <strong>${t.capacity}</strong></div>
+                      <div class="small" style="margin-top:8px">Beschreibung: ${descForZone(t.zone)}</div>`;
     card.appendChild(info);
 
     const actions = document.createElement('div');
     actions.className = 'actions';
     const btn = document.createElement('button');
     btn.className = 'book-btn';
-    btn.textContent = isTableBooked(t.id) ? 'Недоступно' : 'Забронировать';
+    btn.textContent = isTableBooked(t.id) ? 'Besetzt' : 'Reservieren';
     btn.disabled = isTableBooked(t.id);
     btn.addEventListener('click', () => openModal(t));
     actions.appendChild(btn);
@@ -143,7 +143,7 @@ function showConfirmation(booking){
 /* submit booking */
 bookingForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  if(!currentTable) return alert('Ошибка — выберите стол.');
+  if(!currentTable) return alert('Wählen Sie bitte den Tisch.');
 
   const name = document.getElementById('b-name').value.trim();
   const phone = document.getElementById('b-phone').value.trim();
