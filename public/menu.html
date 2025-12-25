@@ -6,92 +6,13 @@
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/preloader.css">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/menu.css">
+
+<link rel="shortcut icon" href="/assets/logo/WiB.png" type="image/x-icon">
 
 
-    <title>IV Bar | Меню</title>
-    <style>
-        /* --- Контейнер страницы --- */
-        main.container {
-            display: flex;
-            max-width: 1200px;
-            margin: 60px auto 40px auto;
-            gap: 30px;
-        }
-
-        /* --- Фильтр слева --- */
-        .menu-filter {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            min-width: 160px;
-        }
-
-        .menu-filter .category-btn {
-            width: 140px;
-            text-align: left;
-            padding: 8px 12px;
-            border-radius: 10px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            border: 1px solid var(--border-color);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .menu-filter .category-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-        }
-
-        .menu-filter .category-btn.active {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            box-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
-        }
-
-        /* --- Сетка карточек меню --- */
-        .menu-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            flex: 1;
-        }
-
-        .menu-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 8px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5), var(--accent-glow);
-        }
-
-        .menu-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-            color: var(--heading-color);
-        }
-
-        .menu-card p {
-            margin: 0;
-            font-style: italic;
-            color: var(--text-color);
-        }
-
-        /* Категории */
-        .shots h3 { color: #ff4d6d; }
-        .alcohol h3 { color: #4dffff; }
-        .non-alcohol h3 { color: #99ff99; }
-        .snacks h3 { color: #ffcc99; }
-        .sets h3 { color: var(--accent-color); }
-    </style>
+    <title>WiB|Меню</title>
+    
 </head>
 <body>
 
