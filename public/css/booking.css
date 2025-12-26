@@ -152,7 +152,7 @@ body{
   display:none;
   align-items:center;
   justify-content:center;
-  background: rgba(0,0,0,0.6);
+  background: black;
   z-index: 1200;
 }
 .modal[aria-hidden="false"] { display:flex; }
