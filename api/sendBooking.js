@@ -25,7 +25,7 @@ export default async function handler(req, res) {
   // HTML для администратора
   const adminHtml = `
     <div style="font-family:Arial,sans-serif; color:#333; padding:20px;">
-      <h2 style="color:#007bff;">Новая бронь WiB.fd</h2>
+      <h2 style="color:#007bff;">Новая бронь WiB</h2>
       <table style="width:100%; border-collapse:collapse;">
         <tr><td style="padding:8px; border:1px solid #ddd;"><strong>Имя</strong></td><td style="padding:8px; border:1px solid #ddd;">${name}</td></tr>
         <tr><td style="padding:8px; border:1px solid #ddd;"><strong>Телефон</strong></td><td style="padding:8px; border:1px solid #ddd;">${phone}</td></tr>
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
   // HTML для клиента
   const clientHtml = `
     <div style="font-family:Arial,sans-serif; color:#333; padding:20px; background:#f9f9f9;">
-      <h2 style="color:#007bff;">Подтверждение брони WiB.fd</h2>
+      <h2 style="color:#007bff;">Подтверждение брони WiB</h2>
       <p>Здравствуйте, ${name}!</p>
       <p>Вы успешно забронировали стол:</p>
       <ul>
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
   try {
     // Письмо админу
     await transporter.sendMail({
-      from: `"Бронирование IV Bar" <${process.env.SMTP_USER}>`,
+      from: `"Бронирование WiB" <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_USER, // Админ
       subject: `Новая бронь от ${name}`,
       html: adminHtml
@@ -63,9 +63,9 @@ export default async function handler(req, res) {
     // Письмо клиенту (если указан email)
     if (email) {
       await transporter.sendMail({
-        from: `"IV Bar" <${process.env.SMTP_USER}>`,
+        from: `"WiB" <${process.env.SMTP_USER}>`,
         to: email,
-        subject: "Подтверждение вашей брони WiB.fd",
+        subject: "Подтверждение вашей брони WiB",
         html: clientHtml
       });
     }
