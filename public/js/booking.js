@@ -1,5 +1,5 @@
 // booking.js — генерирует карточки, фильтрует, открывает модалку и отправляет брони на сервер
-const API_URL = "http://localhost:3000/tables";
+const API_URL = "https://wib-admin.vercel.app/tables";
 let tableStates = [];
 
 const tablesGrid = document.getElementById('tables-grid');
