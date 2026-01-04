@@ -101,6 +101,11 @@ body {
   gap: 2rem;
 }
 
+.back{
+  color: #a1a1aa;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
 .nav-links a {
   color: var(--text-color);
   text-decoration: none;
